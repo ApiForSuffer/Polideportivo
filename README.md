@@ -67,5 +67,5 @@
 - Un entrenador imparte muchas sesiones de entrenamiento. Muchas sesiones de entrenamiento son impartidas por un entrenador.
 - Un entrenador imparte un solo deporte. Cada deporte es impartido por un entrenador.
 
-Este texto en formato Markdown resalta las diferentes entidades y sus atributos, así como 
+
 
