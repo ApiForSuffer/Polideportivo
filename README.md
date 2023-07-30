@@ -65,5 +65,19 @@
 - Un entrenador imparte muchas sesiones de entrenamiento. Muchas sesiones de entrenamiento son impartidas por un entrenador.
 - Un entrenador imparte un solo deporte. Cada deporte es impartido por un entrenador.
 
+## Tareas 30/7
+
+- Román: Entidades User, Reservation y Event.
+- Iván: Entidades Sport, Trainer y TrainningSesion.
+- Vicente: Entidad Payment. Todos los repositorios.
+
+### Notas importantes
+
+- BigDecimal es un dipo de dato en Java.
+- El nombre de las variables y Entidades es exáctamente el mismo que figura anteriormente.
+- Para los enumerados, crear un nuevo paquete llamado enum. El enum se llamara, por ejemplo, SportType en el caso de la entidad Sport y EvenType en el caso de la entidad Event.
+- Cuando hagáis las entidades, al no hacer todas la misma persona, tendréis el nombre de dicha entidad en rojo ya que no existe. Dejadlo así.
+- Cualquier duda consultar.
+    
 
 
