@@ -1,6 +1,4 @@
-# Polideportivo BBDD 
-
-## Base de datos y relaciones
+# Base de datos y relaciones
 
 ### User
 
