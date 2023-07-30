@@ -69,9 +69,9 @@
 
 - Román: Entidades Reservation y Trainer. Repositorio de Trainer.
 - Iván: Entidad TrainingSession. Repositorios de TrainingSession y Reservation.
-- Vicente: Entidad Payment. Enumerados de Sport y Event. Repositorio de Payment.
-- Jose: Entidades Sport y Event. Repositorios de Sport, Event.
-- Sonia: Entidad User. Respositorio User.
+- Vicente: Entidad Payment. Enumerados de Sport y Event.
+- Jose: Entidades Sport y Event. Repositorio Payment.
+- Sonia: Entidad User. Respositorios User, Sport y Event.
 
 ### Notas importantes
 
