@@ -68,7 +68,7 @@
 ## Tareas 30/7
 
 - Román: Entidades User, Reservation y Event.
-- Iván: Entidades Sport, Trainer y TrainingSesion.
+- Iván: Entidades Sport, Trainer y TrainingSession.
 - Vicente: Entidad Payment. Todos los repositorios.
 
 ### Notas importantes
