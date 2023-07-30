@@ -67,16 +67,19 @@
 
 ## Tareas 30/7
 
-- Román: Entidades User, Reservation y Event.
-- Iván: Entidades Sport, Trainer y TrainingSession.
-- Vicente: Entidad Payment. Todos los repositorios.
+- Román: Entidades User y Reservation. Repositorios de Reservation y User.
+- Iván: Entidades Trainer y TrainingSession. Repositorio de TrainingSession.
+- Vicente: Entidad Payment. Enumerados de Sport y Event. Repositorio de Payment.
+- Jose: Entidades Sport y Event. Repositorios de Sport, Event y Trainer.
 
 ### Notas importantes
 
+- Trabajar en la rama personal.
+- No hacer push.
 - BigDecimal es un dipo de dato en Java.
 - El nombre de las variables y Entidades es exáctamente el mismo que figura anteriormente.
 - Para los enumerados, crear un nuevo paquete llamado enum. El enum se llamara, por ejemplo, SportType en el caso de la entidad Sport y EvenType en el caso de la entidad Event.
-- Cuando hagáis las entidades, al no hacer todas la misma persona, tendréis el nombre de dicha entidad en rojo ya que no existe. Dejadlo así.
+- Cuando hagáis las entidades y relaciones, al no hacer todas la misma persona, tendréis el nombre de dicha entidad en rojo ya que no existe. Dejadlo así.
 - Cualquier duda consultar.
     
 
