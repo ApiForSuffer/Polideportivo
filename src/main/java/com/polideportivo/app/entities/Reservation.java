@@ -34,5 +34,5 @@ public class Reservation {
 
     @OneToOne(mappedBy = "reservation") // one reservation is done by one payment
     private Payment payment;
-    // cambio
+
 }
