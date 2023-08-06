@@ -30,7 +30,7 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public Event modifyEvent(Event event) {
+    public Event modifyEvent(Event event, Long id) {
         return eventRepository.save(event);
     }
 
