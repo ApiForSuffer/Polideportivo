@@ -20,8 +20,6 @@ public class Reservation {
     private String description;
     private LocalDateTime date;
     private boolean status;
-    private Long userId;
-    private Long eventId;
 
     // relaciones
     @ManyToOne // many reservations can be done by one user

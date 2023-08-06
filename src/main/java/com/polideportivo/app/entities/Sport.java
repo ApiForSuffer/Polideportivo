@@ -6,28 +6,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table(name = "TB_EVENT")
-public class Event {
+@Table(name = "TB_SPORT")
+public class Sport {
     // atributos
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Enumerated(EnumType.STRING)
     private EventType eventType;
     private String description;
-    private LocalDateTime date;
-    private BigDecimal prize;
 
     // relaciones
-    @OneToOne // one event is registered by one reservation
-    private Reservation reservation;
+    @OneToOne(mappedBy = "sport")   // one trainer imparts one sport
+    private Trainer trainer;
 
 }

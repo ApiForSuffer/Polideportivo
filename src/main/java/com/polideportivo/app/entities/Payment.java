@@ -1,33 +1,33 @@
 package com.polideportivo.app.entities;
 
-import com.polideportivo.app.enums.EventType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table(name = "TB_EVENT")
-public class Event {
+@Table(name = "TB_PAYMENT")
+public class Payment {
     // atributos
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Enumerated(EnumType.STRING)
-    private EventType eventType;
-    private String description;
+    private BigDecimal amount;
     private LocalDateTime date;
-    private BigDecimal prize;
 
     // relaciones
-    @OneToOne // one event is registered by one reservation
+    @OneToOne   // one payment is registered for one reservation
     private Reservation reservation;
+
+    @ManyToOne  // many payments can be done by one user
+    private User user;
+
 
 }
