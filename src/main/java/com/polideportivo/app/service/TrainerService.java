@@ -9,7 +9,7 @@ public interface TrainerService {
     List<Trainer> getTrainers();
     Trainer getTrainerById(Long id);
     Trainer addTrainer(Trainer trainer);
-    Trainer modifyTrainer(Trainer trainer);
+    Trainer modifyTrainer(Trainer trainer, Long id);
     void deleteTrainer(Long id);
     
 }

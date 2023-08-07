@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+:root {
+    --first: #5585b5;
+    --second: #53a8b6;
+    --third: #79c2d0;
+    --fourth: #bbe4e9;
+    --text: #000d33;
+}
+
+html {
+    background-color: var(--first);
+    font-family: Quicksand, sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 2.8rem;
+    color: white;
+}
+
+div {
+    background-color: var(--third);
+}
+
+li {
+    font-size: 1.4rem;
+    background-color: var(--second);
+    font-color: var(--text);
+}
+
+li:hover {
+    background-color: var(--fourth);
+    font-weight: 500;
+}

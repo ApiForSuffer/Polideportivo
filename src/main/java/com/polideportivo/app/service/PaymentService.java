@@ -9,7 +9,7 @@ public interface PaymentService {
     List<Payment> getPayments();
     Payment getPaymentById(Long id);
     Payment addPayment(Payment payment);
-    Payment modifyPayment(Payment payment);
+    Payment modifyPayment(Payment payment, Long id);
     void deletePayment(Long id);
 
 }
