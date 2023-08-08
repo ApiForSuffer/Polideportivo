@@ -14,22 +14,44 @@ html {
     font-weight: 300;
 }
 
+body {
+    width: 70%;
+    padding: 1.5rem;
+    margin: 0 auto;
+}
+
 h1 {
     font-size: 2.8rem;
-    color: white;
+    color: var(--text);
+    background-color: var(--second);
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--text);
+    background-color: var(--second);
 }
 
 div {
     background-color: var(--third);
+    padding: 1rem;
+    min-height: 5rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-li {
-    font-size: 1.4rem;
+#userItem {
+    padding: 1rem;
+    font-size: 0.8rem;
+    width: 25%;
     background-color: var(--second);
-    font-color: var(--text);
+    color: var(--text);
+    margin: 0 auto;
+    border: 0.4rem solid var(--first);
 }
 
-li:hover {
+#userItem:hover {
     background-color: var(--fourth);
     font-weight: 500;
 }

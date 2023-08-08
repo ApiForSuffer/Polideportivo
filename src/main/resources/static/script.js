@@ -11,9 +11,10 @@ function fetchUsers() {
 
             // Loop through the user and create list items
             data.forEach(user => {
-                const userItem = document.createElement('li');
+                const userItem = document.createElement('div');
+                userItem.setAttribute("id", "userItem");
                 console.log(userItem);
-                userItem.textContent = `${user.name}: ${user.lastName}, Registration Date: ${user.registrationDate}, Phone: ${user.phone}`;
+                userItem.textContent = `${user.name} ${user.lastName}, Registration Date: ${user.registrationDate}, Phone: ${user.phone}`;
                 userList.appendChild(userItem);
             });
         })

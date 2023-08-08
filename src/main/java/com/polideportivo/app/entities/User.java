@@ -1,16 +1,15 @@
 package com.polideportivo.app.entities;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
 @Table(name = "TB_USER")
 public class User {
@@ -25,13 +24,66 @@ public class User {
     private String phone;
 
     // relaciones
-    @OneToMany(mappedBy = "user") // one user to many reservations
-    private List<Reservation> reservations;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // one user to many reservations
+    @JsonManagedReference("user")
+    private List<Reservation> reservations = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user") // one user to many training sessions
-    private List<TrainingSession> trainingSessions;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // one user to many training sessions
+    @JsonManagedReference("user")
+    private List<TrainingSession> trainingSessions = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user") // one user to many payments
-    private List<Payment> payments;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // one user to many payments
+    @JsonManagedReference("user")
+    private List<Payment> payments = new ArrayList<>();
 
+
+    // getters y setters
+    public Long getId() {
+        return this.id;
+    }
+    public String getName() {
+        return this.name;
+    }
+    public String getLastName() {
+        return this.lastName;
+    }
+    public LocalDateTime getRegistrationDate() {
+        return this.registrationDate;
+    }
+    public String getPhone() {
+        return this.phone;
+    }
+    public List<Reservation> getReservations() {
+        return this.reservations;
+    }
+    public List<TrainingSession> getTrainingSessions() {
+        return this.trainingSessions;
+    }
+    public List<Payment> getPayments() {
+        return this.payments;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    public void setRegistrationDate(LocalDateTime registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+    public void setTrainingSessions(List<TrainingSession> trainingSessions) {
+        this.trainingSessions = trainingSessions;
+    }
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
+    }
 }

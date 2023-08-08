@@ -1,5 +1,7 @@
 package com.polideportivo.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +28,45 @@ public class TrainingSession {
     private Trainer trainer;
 
     @ManyToOne  // many trainingSessions are taken by one user
+    @JsonBackReference("trainingSessions")
     private User user;
 
+
+    // getters y setters
+    public Long getId() {
+        return this.id;
+    }
+    public String getDescription() {
+        return this.description;
+    }
+    public LocalDateTime getInitDate() {
+        return this.initDate;
+    }
+    public LocalDateTime getEndDate() {
+        return this.endDate;
+    }
+    public Trainer getTrainer() {
+        return this.trainer;
+    }
+    public User getUser() {
+        return this.user;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public void setInitDate(LocalDateTime initDate) {
+        this.initDate = initDate;
+    }
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
+    }
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
