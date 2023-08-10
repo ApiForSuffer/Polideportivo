@@ -1,5 +1,6 @@
 package com.polideportivo.app.controller;
 
+import com.polideportivo.app.entities.Reservation;
 import com.polideportivo.app.entities.User;
 import com.polideportivo.app.service.UserService;
 import lombok.AllArgsConstructor;
@@ -31,6 +32,14 @@ public class UserController {
         return new ResponseEntity<>(service.addUser(user), HttpStatus.OK);
     }
 
+    @PostMapping("/{userId}/addReservation")
+    public ResponseEntity<User> addReservationToUser(@PathVariable Long userId, @RequestBody Reservation reservation) {
+        User updatedUser = service.addReservationToUser(userId, reservation);
+        if (updatedUser != null)
+            return ResponseEntity.ok(updatedUser);
+        return null;
+    }
+
     @PutMapping("/modify/{id}")
     public ResponseEntity<User> modifyUser(@RequestBody User user, @PathVariable Long id) {
         return new ResponseEntity<>(service.modifyUser(user, id), HttpStatus.OK);
@@ -39,6 +48,12 @@ public class UserController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         service.deleteUser(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<Void> deleteAllUsers() {
+        service.deleteAllUsers();
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

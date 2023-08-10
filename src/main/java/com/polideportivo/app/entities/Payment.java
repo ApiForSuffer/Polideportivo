@@ -1,6 +1,7 @@
 package com.polideportivo.app.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -26,11 +27,9 @@ public class Payment {
 
     // relaciones
     @OneToOne   // one payment is registered for one reservation
-    @JsonBackReference("payments")
     private Reservation reservation;
 
     @ManyToOne  // many payments can be done by one user
-    @JsonBackReference("payments")
     private User user;
 
 

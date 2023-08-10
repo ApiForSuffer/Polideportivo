@@ -2,7 +2,9 @@ package com.polideportivo.app.controller;
 
 
 import com.polideportivo.app.entities.Reservation;
+import com.polideportivo.app.entities.User;
 import com.polideportivo.app.service.ReservationService;
+import com.polideportivo.app.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ import java.util.List;
 public class ReservationController {
 
     private ReservationService service;
+    private UserService userService;
 
     @GetMapping("/findall")
     public ResponseEntity<List<Reservation>> getReservations() {
@@ -29,7 +32,18 @@ public class ReservationController {
 
     @PostMapping("/add")
     public ResponseEntity<Reservation> addReservation(@RequestBody Reservation reservation) {
-        return new ResponseEntity<>(service.addReservation(reservation), HttpStatus.OK);
+        Reservation addedReservation = service.addReservation(reservation);
+        if (addedReservation != null) {
+            Long userId = reservation.getUser().getId();
+            User user = userService.getUserById(userId);
+            if (user != null) {
+                // Add the reservation to the user's list
+                user.getReservations().add(addedReservation);
+                userService.modifyUser(user, user.getId()); // Update the user with the new reservation
+                return new ResponseEntity<>(addedReservation, HttpStatus.OK);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @PutMapping("/modify/{id}")

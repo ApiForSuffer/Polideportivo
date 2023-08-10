@@ -1,6 +1,7 @@
 package com.polideportivo.app.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +29,6 @@ public class TrainingSession {
     private Trainer trainer;
 
     @ManyToOne  // many trainingSessions are taken by one user
-    @JsonBackReference("trainingSessions")
     private User user;
 
 

@@ -1,5 +1,6 @@
 package com.polideportivo.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
@@ -25,15 +26,12 @@ public class User {
 
     // relaciones
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // one user to many reservations
-    @JsonManagedReference("user")
     private List<Reservation> reservations = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // one user to many training sessions
-    @JsonManagedReference("user")
     private List<TrainingSession> trainingSessions = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // one user to many payments
-    @JsonManagedReference("user")
     private List<Payment> payments = new ArrayList<>();
 
 

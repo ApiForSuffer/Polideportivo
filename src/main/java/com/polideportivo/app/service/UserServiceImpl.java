@@ -1,11 +1,14 @@
 package com.polideportivo.app.service;
 
+import com.polideportivo.app.entities.Reservation;
 import com.polideportivo.app.entities.User;
 import com.polideportivo.app.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -29,6 +32,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User addReservationToUser(Long userId, Reservation reservation) {
+        Optional<User> optionalUser = userRepository.findById(userId);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            user.getReservations().add(reservation);
+            return userRepository.save(user);
+        }
+        return null;
+    }
+
+    @Override
     public User modifyUser(User user, Long id) {
         return userRepository.save(user);
     }
@@ -37,5 +51,8 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+
+    @Override
+    public void deleteAllUsers() { userRepository.deleteAll(); }
     
 }

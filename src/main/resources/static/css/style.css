@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('scrollbar.css');
 
 :root {
     --first: #5585b5;
@@ -12,6 +13,7 @@ html {
     background-color: var(--first);
     font-family: Quicksand, sans-serif;
     font-weight: 300;
+    overflow-y: scroll;
 }
 
 body {
@@ -23,22 +25,28 @@ body {
 h1 {
     font-size: 2.8rem;
     color: var(--text);
-    background-color: var(--second);
     text-align: center;
 }
 
-h2 {
-    font-size: 2rem;
+h3 {
+    font-size: 1.5rem;
     color: var(--text);
-    background-color: var(--second);
 }
 
 div {
     background-color: var(--third);
+    margin: 2.4rem;
     padding: 1rem;
     min-height: 5rem;
     display: flex;
     flex-wrap: wrap;
+    border-radius: 18px;
+}
+
+button {
+    background-color: var(--third);
+    border-radius: 10px;
+    margin: 0 auto;
 }
 
 #userItem {

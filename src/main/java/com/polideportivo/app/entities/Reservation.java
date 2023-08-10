@@ -1,6 +1,7 @@
 package com.polideportivo.app.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -27,7 +28,6 @@ public class Reservation {
     // relaciones
     @ManyToOne // many reservations can be done by one user
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @JsonBackReference("reservations")
     private User user;
 
     @OneToOne // one reservation pertains to one event
@@ -35,7 +35,6 @@ public class Reservation {
     private Event event;
 
     @OneToOne(mappedBy = "reservation") // one reservation is done by one payment
-    @JsonManagedReference("reservation")
     private Payment payment;
 
     // getters y setters
