@@ -29,6 +29,7 @@ public class TrainingSession {
     private Trainer trainer;
 
     @ManyToOne  // many trainingSessions are taken by one user
+    @JsonBackReference
     private User user;
 
 

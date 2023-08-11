@@ -28,6 +28,7 @@ public class Reservation {
     // relaciones
     @ManyToOne // many reservations can be done by one user
     @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JsonBackReference
     private User user;
 
     @OneToOne // one reservation pertains to one event

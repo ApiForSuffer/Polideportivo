@@ -30,6 +30,7 @@ public class Payment {
     private Reservation reservation;
 
     @ManyToOne  // many payments can be done by one user
+    @JsonBackReference
     private User user;
 
 

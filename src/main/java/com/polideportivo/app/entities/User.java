@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
+import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -26,12 +27,15 @@ public class User {
 
     // relaciones
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // one user to many reservations
+    @JsonManagedReference
     private List<Reservation> reservations = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // one user to many training sessions
+    @JsonManagedReference
     private List<TrainingSession> trainingSessions = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // one user to many payments
+    @JsonManagedReference
     private List<Payment> payments = new ArrayList<>();
 
 

@@ -6,7 +6,6 @@ import com.polideportivo.app.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,17 +28,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public User addUser(User user) {
         return userRepository.save(user);
-    }
-
-    @Override
-    public User addReservationToUser(Long userId, Reservation reservation) {
-        Optional<User> optionalUser = userRepository.findById(userId);
-        if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-            user.getReservations().add(reservation);
-            return userRepository.save(user);
-        }
-        return null;
     }
 
     @Override

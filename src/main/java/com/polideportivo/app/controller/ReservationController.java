@@ -32,18 +32,7 @@ public class ReservationController {
 
     @PostMapping("/add")
     public ResponseEntity<Reservation> addReservation(@RequestBody Reservation reservation) {
-        Reservation addedReservation = service.addReservation(reservation);
-        if (addedReservation != null) {
-            Long userId = reservation.getUser().getId();
-            User user = userService.getUserById(userId);
-            if (user != null) {
-                // Add the reservation to the user's list
-                user.getReservations().add(addedReservation);
-                userService.modifyUser(user, user.getId()); // Update the user with the new reservation
-                return new ResponseEntity<>(addedReservation, HttpStatus.OK);
-            }
-        }
-        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(service.addReservation(reservation), HttpStatus.OK);
     }
 
     @PutMapping("/modify/{id}")
